@@ -36,6 +36,8 @@ export default function App() {
   };
 
   const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Do you want to delete this product?");
+    if (!confirmDelete) return;
     await deleteProduct(id);
     setProducts(p => p.filter(x => x.id !== id));
     showStatus("Product deleted successfully");
