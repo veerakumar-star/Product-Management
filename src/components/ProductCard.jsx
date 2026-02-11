@@ -1,4 +1,12 @@
 export default function ProductCard({ product, onEdit, onDelete }) {
+
+  const onEditHandler = () => {
+    onEdit(product)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
   return (
     <div className="card h-100 shadow-sm">
       <div className="card-body">
@@ -14,14 +22,14 @@ export default function ProductCard({ product, onEdit, onDelete }) {
         <div className="d-flex gap-2 mt-3">
           <button
             className="btn btn-warning btn-sm"
-            onClick={()=>onEdit(product)}
+            onClick={onEditHandler}
           >
             Edit
           </button>
 
           <button
             className="btn btn-danger btn-sm"
-            onClick={()=>onDelete(product.id)}
+            onClick={() => onDelete(product.id)}
           >
             Delete
           </button>
